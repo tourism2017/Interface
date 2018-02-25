@@ -5,8 +5,129 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+.container {
+    position: relative;
+    width: 50%;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+</style>
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+</style>
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+    
+input[type=text] {
+    width: 50%;
+    padding: 5px 5px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid green;
+}
+
+    * {box-sizing: border-box;}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute; 
+  bottom: 0; 
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1; 
+  width: 100%;
+  transition: .5s ease;
+  opacity:1;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
 </style>
 <body class="w3-light-grey">
 
@@ -15,55 +136,66 @@ and is wrapped around the whole page content, except for the footer in this exam
 <div class="w3-content" style="max-width:1400px">
 
 <!-- Header -->
-<header class="w3-container w3-center w3-padding-32"> 
-  <h1><b>TOURISM AGENCIES</b></h1>
-  <p>Welcome to the Page of <span class="w3-tag">GetMyTour</span></p>
+<header class="w3-container w3-center w3-padding-20"> 
+  <h1><b>
+         <form>
+         <input type="text" id="agency_name" name="agency_name" placeholder="Agency Name">
+         </form>
+      </b></h1>
+         <form>
+         <input type="text" id="agency_motto" name="agency_motto" placeholder="Agency Motto">
+         </form> <p><span class="w3-tag">Sponsered by Tourlancers</span></p>
 </header>
 
 <!-- Grid -->
 <div class="w3-row">
 
+  
+    
 <!-- Blog entries -->
-<div class="w3-col l8 s12">
+<div class="w3-col l5">
   <!-- Blog entry -->
-  <div class="w3-card-4 w3-margin w3-white">
-    <img src="images/insta8.jpg" alt="Nature" style="width:100%">
-    <div class="w3-container">
-      <h3><b>Agency Name</b></h3>
-      <h5>Title description, <span class="w3-opacity">April 7, 2014</span></h5>
-    </div>
-
-    <div class="w3-container">
-      <p>Welcome to MyAgency! </p>
-      <div class="w3-row">
-        <div class="w3-col m8 s12">
-          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
-        </div>
-        <div class="w3-col m4 w3-hide-small">
-          <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p>
-        </div>
-      </div>
+     <div class="w3-card w3-margin w3-margin-top">
+  <div class="container">
+  <img src="upload.png" alt="DP" class="image" style="width:50%; margin-left: 20%" >
+  <div class="middle">
+    <div class="text"><form> <input type="file" name="agency_logo" ></form></div>
+  </div>
+</div>
+    <div class="w3-container w3-white">
+      <h4><b> <form>
+         <input type="text" id="agency_name2" name="agency_name2" placeholder="Agency Name">
+         </form></b></h4>
+      <form> <p>
+         <textarea rows="4" cols="50" name="agency_description" placeholder="Short Description and Work..." >
+</textarea>
+</p>
+         </form>
     </div>
   </div>
   <hr>
 
   <!-- Blog entry -->
   <div class="w3-card-4 w3-margin w3-white">
-  <img src="images/insta9.jpg" alt="Norway" style="width:100%">
+  
     <div class="w3-container">
-      <h3><b>BLOG ENTRY</b></h3>
-      <h5>Title description, <span class="w3-opacity">April 2, 2014</span></h5>
+      <h3><b>DEALS FOR YOU</b></h3>
+      <h5><span class="w3-opacity"></span></h5>
     </div>
 
     <div class="w3-container">
-      <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed
-        tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+      <div class="container">
+  <img src="f.jpg" alt="Avatar" class="image">
+  <div class="overlay"><form>
+         <input type="text" id="trip_cap" name="trip_cap" placeholder="Enter deals for clients...">
+         </form></div>
+</div>
       <div class="w3-row">
         <div class="w3-col m8 s12">
-          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>Tour Gallery</b></button></p>
         </div>
         <div class="w3-col m4 w3-hide-small">
-          <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-badge">2</span></span></p>
+          <p><span class="w3-padding-large w3-right"><b>Reviews  </b> <span class="w3-badge">2</span></span></p>
         </div>
       </div>
     </div>
@@ -72,14 +204,31 @@ and is wrapped around the whole page content, except for the footer in this exam
 </div>
 
 <!-- Introduction menu -->
-<div class="w3-col l4">
+<div class="w3-col l6 s6">
   <!-- About Card -->
-  <div class="w3-card w3-margin w3-margin-top">
-  <img src="images/img_avatar.png" style="width:100%">
-    <div class="w3-container w3-white">
-      <h4><b>Agency Name</b></h4>
-      <p>Just me, myself and I, exploring the universe of uknownment. I have a heart of love and a interest of lorem ipsum and mauris neque quam blog. I want to share my world with you.</p>
-    </div>
+ <div class="w3-card-4 w3-margin w3-white">
+      <div class="w3-container">
+          <h3><b>Profile Card</b></h3></div>
+    <div class="card">
+ <div class="container">
+  <img src="avatar.png" alt="DP" class="image" style="width:100%">
+  <div class="middle">
+    <div class="text"><form> <input type="file" name="card_dp" ></form></div>
+  </div>
+</div>
+        <form> <p><input type="text" id="card_name" name="card_name" placeholder="Holder Name"></p></form>
+  <form> <p class="title">
+      <textarea rows="4" cols="20" name="card_bio" placeholder="Upload Bio" ></textarea></p>
+         </form>
+ 
+  <div style="margin: 24px 0;">
+    <a href=""><i class="fa fa-dribbble"></i></a> 
+    <a href="#"><i class="fa fa-twitter"></i></a>  
+    <a href="#"><i class="fa fa-linkedin"></i></a>  
+    <a href="#"><i class="fa fa-facebook"></i></a> 
+ </div>
+ <p><button><form> <input type="text" id="card_contact" name="card_contact" placeholder="Contact"></form></button></p>
+</div>
   </div><hr>
   
   <!-- Posts -->
@@ -89,25 +238,26 @@ and is wrapped around the whole page content, except for the footer in this exam
     </div>
     <ul class="w3-ul w3-hoverable w3-white">
       <li class="w3-padding-16">
-        <img src="images/insta1.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-        <span class="w3-large">Rajasthan Tourism</span><br>
-        <span>14/09/2018</span>
+       
+        <span class="w3-large"><form>
+         <input type="text"  name="tour_cal11" placeholder="Upcoming Trip...">
+         </form></span><br>
+        <span><form>
+         <input type="date" name="trip_start1" placeholder="Trip Begins">
+           <input type="date"  name="trip_ends1" placeholder="Trip Ends">
+         </form></span>
       </li>
       <li class="w3-padding-16">
-        <img src="images/insta2.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-        <span class="w3-large">Kashmir Tourism</span><br>
-        <span>14/10/2018</span>
+        
+        <span class="w3-large"><form>
+         <input type="text"  name="tour_cal2" placeholder="Upcoming Trip...">
+         </form></span><br>
+        <span><form>
+         <input type="date"  name="trip_start2" placeholder="Trip Begins">
+           <input type="date"  name="trip_ends2" placeholder="Trip Ends">
+         </form></span>
       </li> 
-      <li class="w3-padding-16">
-        <img src="images/insta3.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-        <span class="w3-large">South India Tourism</span><br>
-        <span>08/11/2019</span>
-      </li>   
-      <li class="w3-padding-16 w3-hide-medium w3-hide-small">
-        <img src="images/insta4.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-        <span class="w3-large">International Tourism</span><br>
-        <span>10/08/2020</span>
-      </li>  
+      
     </ul>
   </div>
   <hr> 
@@ -115,14 +265,14 @@ and is wrapped around the whole page content, except for the footer in this exam
   <!-- Labels / tags -->
   <div class="w3-card w3-margin">
     <div class="w3-container w3-padding">
-      <h4>Tags</h4>
+      <h4>Places Visited</h4>
     </div>
     <div class="w3-container w3-white">
-    <p><span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">New York</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">London</span>
-      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">IKEA</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">NORWAY</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">DIY</span>
-      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Baby</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Family</span>
-      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">News</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Clothing</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Shopping</span>
-      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Sports</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Games</span>
+    <p><span class="w3-tag w3-black w3-margin-bottom">Shimla,India</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Darjeeling,India</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Rajastan,India</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Hyderabad,India</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Puri,India</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Guwahati,India</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Bangalore,India</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Delhi,India</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">KanyaKumari,India</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Maharashtra,India</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Clothing</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Chennai,India</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Digha,India</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Assam,India</span>
     </p>
     </div>
   </div>
@@ -138,9 +288,8 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 <!-- Footer -->
 <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
-  <button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Previous</button>
-  <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next »</button>
-  <p>Powered by <a href="http://www.tourlancers.com" target="_blank">Tourlancers</a></p>
+ 
+  <p>Powered by <a href="https://www.tourlancers.com" target="_blank">Tourlancers</a></p>
 </footer>
 
 </body>
