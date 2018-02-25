@@ -6,6 +6,15 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="jquery-3.2.1.min.js"></script>
+
+    <script src="angular.min.js"></script>
+    <script src="angular-route.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+
+
     <style>
 .container {
     position: relative;
@@ -86,7 +95,7 @@ button:hover, a:hover {
 </style>
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-    
+
 input[type=text] {
     width: 50%;
     padding: 5px 5px;
@@ -111,11 +120,11 @@ input[type=text] {
 }
 
 .overlay {
-  position: absolute; 
-  bottom: 0; 
+  position: absolute;
+  bottom: 0;
   background: rgb(0, 0, 0);
   background: rgba(0, 0, 0, 0.5); /* Black see-through */
-  color: #f1f1f1; 
+  color: #f1f1f1;
   width: 100%;
   transition: .5s ease;
   opacity:1;
@@ -129,29 +138,55 @@ input[type=text] {
   opacity: 1;
 }
 </style>
-<body class="w3-light-grey">
 
-<!-- w3-content defines a container for fixed size centered content, 
+<script type="text/javascript">
+var app = angular.module("app",[]);
+app.controller("agency",["$scope",function($scope){
+
+            $scope.name = null;
+            $scope.motto=null;
+            $scope.logo=null;
+            $scope.cardname=null;
+            $scope.tripcap=null;
+            $scope.cardcontact=null;
+
+
+            if($scope.name != null){
+              
+            }
+
+
+
+
+
+
+}]);
+</script>
+
+
+<body class="w3-light-grey" ng-app="app">
+
+<!-- w3-content defines a container for fixed size centered content,
 and is wrapped around the whole page content, except for the footer in this example -->
-<div class="w3-content" style="max-width:1400px">
+<div class="w3-content" style="max-width:1400px" ng-controller="agency">
 
 <!-- Header -->
-<header class="w3-container w3-center w3-padding-20"> 
+<header class="w3-container w3-center w3-padding-20">
   <h1><b>
          <form>
-         <input type="text" id="agency_name" name="agency_name" placeholder="Agency Name">
+         <input type="text" id="agency_name" name="agency_name" placeholder="Agency Name" ng-model="name"><span ng-show="!name"><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span>
          </form>
       </b></h1>
          <form>
-         <input type="text" id="agency_motto" name="agency_motto" placeholder="Agency Motto">
+         <input type="text" id="agency_motto" name="agency_motto" placeholder="Agency Motto" ng-model="motto"><span ng-show="!motto"><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span>
          </form> <p><span class="w3-tag">Sponsered by Tourlancers</span></p>
 </header>
 
 <!-- Grid -->
 <div class="w3-row">
 
-  
-    
+
+
 <!-- Blog entries -->
 <div class="w3-col l5">
   <!-- Blog entry -->
@@ -159,12 +194,12 @@ and is wrapped around the whole page content, except for the footer in this exam
   <div class="container">
   <img src="upload.png" alt="DP" class="image" style="width:50%; margin-left: 20%" >
   <div class="middle">
-    <div class="text"><form> <input type="file" name="agency_logo" ></form></div>
+    <div class="text"><form> <input type="file" name="agency_logo"  accept="image/*" ></form></div>
   </div>
 </div>
     <div class="w3-container w3-white">
       <h4><b> <form>
-         <input type="text" id="agency_name2" name="agency_name2" placeholder="Agency Name">
+         <input type="text" id="agency_name2" name="agency_name2" placeholder="Agency Name" ng-model="agencyname2"><span ng-show="!agencyname2"><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span>
          </form></b></h4>
       <form> <p>
          <textarea rows="4" cols="50" name="agency_description" placeholder="Short Description and Work..." >
@@ -177,7 +212,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 
   <!-- Blog entry -->
   <div class="w3-card-4 w3-margin w3-white">
-  
+
     <div class="w3-container">
       <h3><b>DEALS FOR YOU</b></h3>
       <h5><span class="w3-opacity"></span></h5>
@@ -187,7 +222,7 @@ and is wrapped around the whole page content, except for the footer in this exam
       <div class="container">
   <img src="f.jpg" alt="Avatar" class="image">
   <div class="overlay"><form>
-         <input type="text" id="trip_cap" name="trip_cap" placeholder="Enter deals for clients...">
+         <input type="text" id="trip_cap" name="trip_cap" placeholder="Enter deals for clients..." ng-model="tripcap"><span ng-show="!tripcap"><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span>
          </form></div>
 </div>
       <div class="w3-row">
@@ -213,24 +248,24 @@ and is wrapped around the whole page content, except for the footer in this exam
  <div class="container">
   <img src="avatar.png" alt="DP" class="image" style="width:100%">
   <div class="middle">
-    <div class="text"><form> <input type="file" name="card_dp" ></form></div>
+    <div class="text"><form> <input type="file" name="card_dp" accept="image/*"></form></div>
   </div>
 </div>
-        <form> <p><input type="text" id="card_name" name="card_name" placeholder="Holder Name"></p></form>
+        <form> <p><input type="text" id="card_name" name="card_name" placeholder="Holder Name" ng-model="cardname"><span ng-show="!cardname"><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span></p></form>
   <form> <p class="title">
       <textarea rows="4" cols="20" name="card_bio" placeholder="Upload Bio" ></textarea></p>
          </form>
- 
+
   <div style="margin: 24px 0;">
-    <a href=""><i class="fa fa-dribbble"></i></a> 
-    <a href="#"><i class="fa fa-twitter"></i></a>  
-    <a href="#"><i class="fa fa-linkedin"></i></a>  
-    <a href="#"><i class="fa fa-facebook"></i></a> 
+    <a href=""><i class="fa fa-dribbble"></i></a>
+    <a href="#"><i class="fa fa-twitter"></i></a>
+    <a href="#"><i class="fa fa-linkedin"></i></a>
+    <a href="#"><i class="fa fa-facebook"></i></a>
  </div>
- <p><button><form> <input type="text" id="card_contact" name="card_contact" placeholder="Contact"></form></button></p>
+ <p><button><form> <input type="text" id="card_contact" name="card_contact" placeholder="Contact" ng-model="cardcontact"><span ng-show="!cardcontact"><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span></form></button></p>
 </div>
   </div><hr>
-  
+
   <!-- Posts -->
   <div class="w3-card w3-margin">
     <div class="w3-container w3-padding">
@@ -238,7 +273,7 @@ and is wrapped around the whole page content, except for the footer in this exam
     </div>
     <ul class="w3-ul w3-hoverable w3-white">
       <li class="w3-padding-16">
-       
+
         <span class="w3-large"><form>
          <input type="text"  name="tour_cal11" placeholder="Upcoming Trip...">
          </form></span><br>
@@ -248,7 +283,7 @@ and is wrapped around the whole page content, except for the footer in this exam
          </form></span>
       </li>
       <li class="w3-padding-16">
-        
+
         <span class="w3-large"><form>
          <input type="text"  name="tour_cal2" placeholder="Upcoming Trip...">
          </form></span><br>
@@ -256,12 +291,12 @@ and is wrapped around the whole page content, except for the footer in this exam
          <input type="date"  name="trip_start2" placeholder="Trip Begins">
            <input type="date"  name="trip_ends2" placeholder="Trip Ends">
          </form></span>
-      </li> 
-      
+      </li>
+
     </ul>
   </div>
-  <hr> 
- 
+  <hr>
+
   <!-- Labels / tags -->
   <div class="w3-card w3-margin">
     <div class="w3-container w3-padding">
@@ -276,7 +311,7 @@ and is wrapped around the whole page content, except for the footer in this exam
     </p>
     </div>
   </div>
-  
+
 <!-- END Introduction Menu -->
 </div>
 
@@ -288,10 +323,9 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 <!-- Footer -->
 <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
- 
+
   <p>Powered by <a href="https://www.tourlancers.com" target="_blank">Tourlancers</a></p>
 </footer>
 
 </body>
 </html>
-
