@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+  <link href="bootstrap.min.css" rel="stylesheet">
     <script src="jquery-3.2.1.min.js"></script>
 
     <script src="angular.min.js"></script>
@@ -140,19 +140,41 @@ input[type=text] {
 </style>
 
 <script type="text/javascript">
-var app = angular.module("app",[]);
+var app = angular.module("app",['ngRoute']); // dependencies of ngRoute need to be provided
+//routing to the suggestion box
+app.config(['$routeProvider',function($routeProvider){
+  $routeProvider
+
+  .when('/sample',{
+//    template:'<strong>This is second message </strong>'
+  templateUrl:'sample.html',
+  controller:'sample'
+  })
+  .when('/',{
+//    template:'<strong>This is second message </strong>'
+  template:' '
+  })
+  .otherwise({
+    template:'<strong> No Content Available... Click one of the links from left panel </strong>'
+  })
+
+
+}]);
+
+app.controller("sample",['$scope','$routeParams',function($scope,$routeParams){
+
+
+}]);
+
+
 app.controller("agency",["$scope",function($scope){
 
-            $scope.name = null;
-            $scope.motto=null;
-            $scope.logo=null;
-            $scope.cardname=null;
-            $scope.tripcap=null;
-            $scope.cardcontact=null;
+
 
 
             if($scope.name != null){
-              
+              // can perform some action here when user fills the agency name input box
+
             }
 
 
@@ -169,7 +191,14 @@ app.controller("agency",["$scope",function($scope){
 <!-- w3-content defines a container for fixed size centered content,
 and is wrapped around the whole page content, except for the footer in this example -->
 <div class="w3-content" style="max-width:1400px" ng-controller="agency">
+  <ul style="list-style:none">
+    <li><a href="#!/sample" ng-show="name">Suggestions for you</a></li>
 
+
+  </ul>
+  <div ng-view>
+
+  </div>
 <!-- Header -->
 <header class="w3-container w3-center w3-padding-20">
   <h1><b>
@@ -202,7 +231,7 @@ and is wrapped around the whole page content, except for the footer in this exam
          <input type="text" id="agency_name2" name="agency_name2" placeholder="Agency Name" ng-model="agencyname2"><span ng-show="!agencyname2"><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span>
          </form></b></h4>
       <form> <p>
-         <textarea rows="4" cols="50" name="agency_description" placeholder="Short Description and Work..." >
+         <textarea rows="4" cols="50" name="agency_description" placeholder="Short Description and Work..." ng-model="desc">
 </textarea>
 </p>
          </form>
@@ -326,6 +355,41 @@ and is wrapped around the whole page content, except for the footer in this exam
 
   <p>Powered by <a href="https://www.tourlancers.com" target="_blank">Tourlancers</a></p>
 </footer>
+<!-- Editing the suggestion webpage here in sample.html -->
+<script type="text/ng-template" id="sample.html">
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+  <a href="#!/" class="btn btn-danger">Close</a>
+          <h4>Sample Web Page</h4>
+
+      </div>
+      <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-4"><strong>Agency No:</strong></div>
+            <div class="col-sm-5"></div>
+          </div><br>
+          <div class="row">
+            <div class="col-md-4"><strong>Agency Name:</strong></div>
+            <div class="col-md-7" ng-show="name.length > 10 && name">{{name}} is too long !</div> <!--Adding conditions here as many as you want -->
+            <div class="col-md-7" ng-show="name.length < 5 && name">{{name}} is too short !</div>
+          </div><br>
+          <div class="row">
+            <div class="col-sm-4"><strong>Holder Name :</strong></div>
+            <div class="col-sm-7"></div>
+          </div><br>
+          <div class="row">
+            <div class="col-sm-4"><strong>Deals :</strong></div>
+            <!-- <div class="col-sm-7">{{dob | date:'medium'}}</div> -->
+          </div><br>
+          <div class="row">
+            <div class="col-sm-4"><strong>Upcoming Tours :</strong></div>
+            <div class="col-sm-7"></div>
+          </div><br>
+      </div>
+    </div>
+</script>
+
 
 </body>
 </html>
